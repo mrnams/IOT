@@ -15,9 +15,9 @@ enum LedStatus
 enum LedStatus curentLedStatus = LedOff;
 #define BAUD_RATE 9600
 // Pins of push buttons and led
-#define pinPButtonLedOn 16
-#define pinPButtonLedOff 5
-#define pinLed 4
+#define pinPButtonLedOn D1
+#define pinPButtonLedOff D2
+#define pinLed D4
 
 void setup()
 {
@@ -37,14 +37,14 @@ void loop()
   Serial.printf("\n \n \n Off button state :");
   Serial.print(digitalRead(pinPButtonLedOff));
 
-  if (digitalRead(pinPButtonLedOn) == LOW && curentLedStatus == LedOff)
+  if (digitalRead(pinPButtonLedOn) == LOW)
   {
     digitalWrite(pinLed, HIGH);
     curentLedStatus = LedOn;
     Serial.printf("\n \n \n Led turned On by Push Button");
   }
 
-  if (digitalRead(pinPButtonLedOff) == LOW && curentLedStatus == LedOn)
+  if (digitalRead(pinPButtonLedOff) == LOW)
   {
     digitalWrite(pinLed, LOW);
     curentLedStatus = LedOff;
