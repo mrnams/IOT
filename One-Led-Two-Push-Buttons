@@ -36,7 +36,7 @@ void loop()
 
   Serial.printf("\n \n \n Off button state :");
   Serial.print(digitalRead(pinPButtonLedOff));
-  delay(1500);
+
   if (digitalRead(pinPButtonLedOn) == LOW && curentLedStatus == LedOff)
   {
     digitalWrite(pinLed, HIGH);
